@@ -1,2 +1,2 @@
-# nexus-tech
-projeto de web II - site de software - html 5 css 3 js
+# Nexus Tech
+# Projeto da disciplina WEB II UTFPR - Guarapuava
