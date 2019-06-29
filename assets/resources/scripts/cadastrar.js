@@ -10,7 +10,7 @@ window.onload = function () {
 
     adicionaClasse();
 
-    $$('form-contato').addEventListener("submit", function (event) {
+    $$('form-cadastra').addEventListener("submit", function (event) {
         event.preventDefault();
     });
 
