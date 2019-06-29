@@ -37,7 +37,9 @@ window.onload = function () {
             $$('input-textarea').setCustomValidity("insira uma mensagem")
         }
     });
-}
+};
+
+
 
 function removerClasse() {
     $("#btn-submit").removeClass("disabled");
