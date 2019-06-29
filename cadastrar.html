@@ -42,10 +42,20 @@
     <!-- fim nav-->
 
     <!--Main inicio-->
+ <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="section">
+                    <div class="light-green darken-1">
+                        <div class="blue darken-4 white-text center tam-font-edit">ENVIAR CURRÍCULO</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section"></div>
+    <div class="section"></div>
 
-    <div class="section"></div>
-    <div class="section"></div>
-    
     <div class="container">
         <div class="row">
             <form id="form-cadastra" action="" class="col s12" onsubmit="salvaReclamacao()">
@@ -55,8 +65,27 @@
                         <input id="input-name" type="text" class="validate" maxlength="60" autofocus
                             pattern="^[A-ZÀ-Ú]{1}[a-zà-ú]*\s(([A-ZÀ-Ú]{1}|[a-z]{2}|[A-Za-u]{1}\'[a-zà-ú]*|[A-ZÀ-Ú]{1}[a-zà-ú]*)\s?)+$"
                             required>
-                        <label for="input-name">Nome Sobenome</label>
+                        <label for="input-name">Nome Completo</label>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <label for="">Gênero</label>
+                        <p>
+                            <label for="input-gender-masculine">
+                                <input id="input-gender-masculine" name="gender-group" type="radio" />
+                                <span>Masculino</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input id="input-gender-feminine" name="gender-group" type="radio" />
+                                <span>Feminino</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
                         <input id="input-telefone" type="tel" class="validate" maxlength="15"
@@ -64,6 +93,16 @@
                         <label for="input-telefone">Telefone</label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">location_city</i>
+                        <input id="input-cidade" type="tel" class="validate" maxlength="40"
+                            placeholder="Ex.: Guarapuava" required>
+                        <label for="input-cidade">Cidade</label>
+                    </div>
+                </div>
+
+
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="input-email" type="email" class="validate" maxlength="40"
@@ -74,6 +113,42 @@
                             data-success="Correto">ajuda</span>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col s12">
+                        <label for="">Área de interesse</label>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="interest-group" value="programador" />
+                                <span>Programador</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="interest-group" value="designer" />
+                                <span>Designer</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="interest-group" value="analista" />
+                                <span>Analista</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="interest-group" value="suporte" />
+                                <span>Suporte</span>
+                            </label>
+                        </p>
+                        <p>
+                            <label>
+                                <input type="checkbox" name="interest-group" value="outros" />
+                                <span>Outros</span>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">mode_edit</i>
