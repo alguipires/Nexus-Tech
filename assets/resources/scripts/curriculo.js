@@ -75,7 +75,7 @@
         }
     };
 
-    //VERIFICAR 
+    //VERIFICAR
     function validaCamposNulos() {
         let aux = null;
         if ($id('input-name').value == "") {
