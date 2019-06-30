@@ -33,9 +33,9 @@
 function mudaCorIconOver(id) {
     $("#" + id).removeClass("grey-text");
     $("#" + id).addClass("light-green-text darken-1");
-}
+};
 
 function mudaCorIconOut(id) {
     $("#" + id).removeClass("light-green-text darken-1");
     $("#" + id).addClass("grey-text");
-}
+};
