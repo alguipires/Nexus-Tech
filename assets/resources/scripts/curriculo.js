@@ -43,7 +43,7 @@
         $id('input-textarea').addEventListener("focus", () => {
             window.setTimeout(() => {
                 $("#btn-submit").removeClass("disabled");
-            }, 2000);
+            }, 1000);
         });
 
         $id('form-curriculo').addEventListener("submit", function (event) {
