@@ -44,29 +44,19 @@
             $("#btn-submit").removeClass("disabled");
         });
 
+        $id('form-curriculo').addEventListener("submit", function (event) {
+            cadastra();
+            console.log("FOIII");
+            /*if (validaCamposNulos() == false) {
+                window.alert("Preencha os Campos");
+            } else {
+                cadastra();
+            }*/
+        });
+
         //checkbox
         // mesagem
         //radiobutton
-
-        //chamado do onsubmit
-        function enviar() {
-
-            cadastra();
-
-            /*
-            //evento add para verificar a validação de todos os campo senão emite um alert
-            $id('form-curriculo').addEventListener("submit", function (event) {
-                //cadastra();
-                if (validaCamposNulos() == false) {
-                    window.alert("Preencha os Campos");
-                } else {
-                    cadastra();
-                }
-            });*/
-
-            return false;
-            console.log("enviou");
-        };
 
     };
 
@@ -86,6 +76,7 @@
         console.log(arrayRelatorio);
     };
 
+    //VERIFICAR
     function getCheckboxArray() {
         let arrayChecked = [];
         let arrayAll = document.querySelectorAll('checkox-areas');
@@ -102,15 +93,18 @@
         }*/
     };
 
+    //VERIFICAR
+    //genero e areas
     function criaObjeto() {
         let nome = $id('input-name').value;
-        let genero = $id('gender-group').value;
+        let genero = document.getElementsByName('gender-group').value;
+        let telefone = $id('input-telefone').value;
         let cidade = $id('input-city').value;
         let email = $id('input-email').value;
-        //let arrayAreas = getCheckboxArray(); //array areas
+        let areas = getCheckboxArray(); //array areas
         let mensagem = $id('input-textarea').value;
 
-        let pessoaObj = new Pessoa(nome, genero, cidade, email, getCheckboxArray(), mensagem);
+        let pessoaObj = new Pessoa(nome, genero, telefone, cidade, email, areas, mensagem);
 
         return pessoaObj;
     }
@@ -137,7 +131,8 @@
     //VERIFICAR
     function clear() {
         let nome = $id('input-name').value = "";
-        let genero = $id('gender-group').value = "";
+        let genero = document.getElementsByName('gender-group').value = "";
+        let telefone = $id('input-telefone').value = "";
         let cidade = $id('input-city').value = "";
         let email = $id('input-email').value = "";
         document.querySelectorAll('checkox-areas').values = ""; //areas
@@ -148,26 +143,26 @@
 
     // calsse objetos
     class Pessoa {
-        constructor(nome, genero, cidade, email, areas, mensagem) {
+        constructor(nome, genero, telefone, cidade, email, areas, mensagem) {
             this.nome = nome;
             this.genero = genero;
-            this.email = email;
             this.telefone = telefone;
             this.cidade = cidade;
+            this.email = email;
             this.areas = areas;
             this.mensagem = mensagem;
         };
-    };
+    }
 
 })();
 
 /*
 A FAZER
 
-
+*genero e areas não esta recebendo dados
 *VALIDAÇÃO DOS CAMPOS COM REGEX E INVALID E TEXTO
-*envio correto do submit formulario ///////VER LOCCAL CORRETO PARA COLOCAR AFUNÇÃO ENVIAR
-*apos arrumar o submit verificar o envio, objeto, etc
+*ARRAY DE OBJETO ESTA SAINDO VAZIA 
+*verificar o envio, objeto, etc
 *fzer pagina de relatorio
 *fazer consulta dos objetos salvo
 */
