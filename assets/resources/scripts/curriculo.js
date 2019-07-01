@@ -205,7 +205,7 @@ A FAZER
 *genero e areas não esta recebendo dados
 *VALIDAÇÃO DOS CAMPOS COM REGEX E INVALID E TEXTO
 *ARRAY DE OBJETO ESTA SAINDO VAZIA 
-*verificar o envio, objeto, etc
-*fzer pagina de relatorio
+*verificar o envio, objeto, etc      /ok
+*fzer pagina de relatorio       
 *fazer consulta dos objetos salvo
 */
