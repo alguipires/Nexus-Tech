@@ -5,6 +5,8 @@
         //$('.sidenav').sidenav();  // ja esta sendo carregado no menu.html com uma tag <script>
         $('.parallax').parallax();
 
+        $('select').formSelect();
+
         //inicialização carousel secundario logos
         $('.carousel').carousel();
 

@@ -71,12 +71,32 @@
 
     //metodos
 
-    function cadastra() {
-        arrayRelatorio.push(criaObjeto());
-        clear();
+    function restauraArrayObjetos(){
+        console.log("restaurando");
+        let arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
+        /*if(arrayRelatorio.length > 0){
+            console.log("dados encontrados");
+        }else{
+            console.log("array vazia ou não encontrada");
+        }*/
+    }
 
+    function armazenaArrayObjetos(array){
+        console.log("armazenando");
+        localStorage.setItem("pessoas", JSON.stringify(array));
+        console.log("armazenado sucess");
+    }
+
+    function cadastra() {
+        restauraArrayObjetos();
+        arrayRelatorio.push(criaObjeto());
+        armazenaArrayObjetos(arrayRelatorio);
+
+        clear();
         console.log(arrayRelatorio);
     };
+
+
 
     //VERIFICAR
     function getCheckboxArray() {
