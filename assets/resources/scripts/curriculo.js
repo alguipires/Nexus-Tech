@@ -20,7 +20,7 @@
         //validação
         $id('input-name').addEventListener("blur", function (event) {
             if ($id('input-name').validity.patternMismatch) {
-                $id('input-name').addEventListener("invalid", function (event){
+                $id('input-name').addEventListener("invalid", function (event) {
                     $id('input-name').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
                 });
             }
@@ -40,14 +40,33 @@
             }
         });
 
-        $id('input-textarea').addEventListener("blur", ()=> {
+        $id('input-textarea').addEventListener("blur", () => {
             $("#btn-submit").removeClass("disabled");
-            $id('form-curriculo').addEventListener("submit");
         });
 
         //checkbox
         // mesagem
         //radiobutton
+
+        //chamado do onsubmit
+        function enviar() {
+
+            cadastra();
+
+            /*
+            //evento add para verificar a validação de todos os campo senão emite um alert
+            $id('form-curriculo').addEventListener("submit", function (event) {
+                //cadastra();
+                if (validaCamposNulos() == false) {
+                    window.alert("Preencha os Campos");
+                } else {
+                    cadastra();
+                }
+            });*/
+
+            return false;
+            console.log("enviou");
+        };
 
     };
 
@@ -56,24 +75,9 @@
     //let arrayChecked = [];
     //let pessoaObj;
 
-    //chamado do onsubmit
-    function envia() {
-        //evento add para verificar a validação de todos os campo senão emite um alert
-        $id('form-curriculo').addEventListener("submit", function (event) {
-            cadastra();
-            /*if (validaCamposNulos() == false) {
-                window.alert("Preencha os Campos");
-            } else {
-                cadastra();
-            }*/
-        });
-    };
+
 
     //metodos
-    /*
-    function removerClasseSubmit() {
-        $("#btn-submit").removeClass("disabled");
-    }*/
 
     function cadastra() {
         arrayRelatorio.push(criaObjeto());
@@ -98,7 +102,7 @@
         }*/
     };
 
-    function criaObjeto(){
+    function criaObjeto() {
         let nome = $id('input-name').value;
         let genero = $id('gender-group').value;
         let cidade = $id('input-city').value;
@@ -116,10 +120,11 @@
         let aux = null;
         if ($id('input-name').value == "") {
             aux = false;
-        }/*
-        if (getCheckboxArray() != true) {
-            aux = false;
-        }*/
+        }
+        /*
+                if (getCheckboxArray() != true) {
+                    aux = false;
+                }*/
         if (aux == false) {
             return false;
         } else {
@@ -155,3 +160,14 @@
     };
 
 })();
+
+/*
+A FAZER
+
+
+*VALIDAÇÃO DOS CAMPOS COM REGEX E INVALID E TEXTO
+*envio correto do submit formulario ///////VER LOCCAL CORRETO PARA COLOCAR AFUNÇÃO ENVIAR
+*apos arrumar o submit verificar o envio, objeto, etc
+*fzer pagina de relatorio
+*fazer consulta dos objetos salvo
+*/

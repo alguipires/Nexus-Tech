@@ -66,13 +66,13 @@
 
     <div class="container">
         <div class="row">
-            <form id="form-curriculo" action="" class="col s12" onsubmit="envia()">
+            <form id="form-curriculo" action="" class="col s12" onsubmit="enviar()">
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="input-name" type="text" class="validate" maxlength="80"
                             pattern="^[A-ZÀ-Ú]{1}[a-zà-ú]*\s(([A-ZÀ-Ú]{1}|[a-z]{2}|[A-Za-u]{1}\'[a-zà-ú]*|[A-ZÀ-Ú]{1}[a-zà-ú]*)\s?)+$"
-                            required>
+                            >
                         <label for="input-name">Nome Completo</label>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
                         <input id="input-telefone" type="tel" class="validate" maxlength="15"
-                            placeholder="Ex.: (00) 00000-0000" required>
+                            placeholder="Ex.: (00) 00000-0000" >
                         <label for="input-telefone">Telefone</label>
                     </div>
                 </div>
@@ -105,7 +105,7 @@
                     <div class="input-field col s6">
                         <i class="material-icons prefix">location_city</i>
                         <input id="input-city" type="tel" class="validate" maxlength="50" placeholder="Ex.: Guarapuava"
-                            required>
+                            >
                         <label for="input-city">Cidade</label>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                     <div class="input-field col s12">
                         <input id="input-email" type="email" class="validate" maxlength="40"
                             pattern="^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$" placeholder="seu@email.com"
-                            required>
+                            >
                         <label for="input-email">Email</label>
                         <span class="helper-text" data-error="Favor digitar e-mail valido"
                             data-success="Correto">ajuda</span>
@@ -160,7 +160,7 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">mode_edit</i>
-                        <textarea maxlength="3000" id="input-textarea" class="materialize-textarea" required></textarea>
+                        <textarea maxlength="3000" id="input-textarea" class="materialize-textarea"></textarea>
                         <label for="input-textarea">Sua mensagem</label>
                     </div>
                 </div>
