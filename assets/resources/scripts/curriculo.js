@@ -40,13 +40,15 @@
             }
         });
 
-        $id('input-textarea').addEventListener("blur", () => {
-            $("#btn-submit").removeClass("disabled");
+        $id('input-textarea').addEventListener("focus", () => {
+            window.setTimeout(() => {
+                $("#btn-submit").removeClass("disabled");
+            }, 2000);
         });
 
         $id('form-curriculo').addEventListener("submit", function (event) {
             cadastra();
-            console.log("FOIII");
+            console.log("FOIII, tam array: " + arrayRelatorio.length);
             /*if (validaCamposNulos() == false) {
                 window.alert("Preencha os Campos");
             } else {
@@ -79,18 +81,39 @@
     //VERIFICAR
     function getCheckboxArray() {
         let arrayChecked = [];
-        let arrayAll = document.querySelectorAll('checkox-areas');
+        let arrayAll = document.querySelectorAll('interest-group');
+        console.log(arrayAll + "tam: " + arrayAll.length);
+        for(let i = 0; i < arrayAll.length; i++){
+            console.log("for checkbox");
+            if(arrayAll[i].checked){
+                arrayChecked.push(element);
+                console.log("passando for eementos checkbox");
+            }
+        }
+        /*
         arrayAll.forEach(element => {
-            if (element.checked === true) {
+            if (element.checked) {
                 arrayChecked.push(element);
             }
+            console.log("passando for eementos checkbox");
         });
-        console.log(arrayChecked); //apagar
+        */
+        console.log("array dos checked" + arrayChecked); //apagar
         return arrayChecked;
         /*//verificação se esta prenchido
         if (arrayChecked > 0) {
             return true;
         }*/
+    };
+
+    //VERIFICAR     METODO PARA GENDER 
+    function getRadioValor() {
+        var generosAll = document.getElementsByName('gender-group');
+        generosAll.forEach(e => {
+            if (e.checked) {
+                return e.value;
+            }
+        });
     };
 
     //VERIFICAR
