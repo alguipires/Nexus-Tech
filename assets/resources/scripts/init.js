@@ -23,20 +23,4 @@
             reverse: false
         });
     }); // end of document ready
-<<<<<<< HEAD
 })(jQuery); // end of jQuery name space
-
-
-function mudaCorIconOver(id) {
-    $("#" + id).removeClass("grey-text");
-    $("#" + id).addClass("light-green-text darken-1");
-}
-
-function mudaCorIconOut(id) {
-    $("#" + id).removeClass("light-green-text darken-1");
-    $("#" + id).addClass("grey-text");
-}
-
-=======
-})(jQuery); // end of jQuery name space
->>>>>>> f150d4350a822029b90266a2d39fc92793a4998b
