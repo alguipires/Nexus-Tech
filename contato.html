@@ -3,10 +3,9 @@
 
 
 
-
 <head>
     <meta charset="UTF-8">
-    <title>Koncept</title>
+    <title>Nexus</title>
     <!--Cor da aba do navegador-->
     <meta name="theme-color" content="#7cb342">
     <meta name="apple-mobile-web-app-status-bar-style" content="#7cb342">
@@ -37,7 +36,7 @@
     <!-- meu script -->
     <script type="text/javascript" src="assets/resources/scripts/init.js"></script>
     <script type="text/javascript" src="assets/resources/scripts/contato.js"></script>
-
+    <script src="assets/resources/scripts/common.js"></script>
 
 </head>
 
@@ -68,62 +67,78 @@
             <div class="row">
                 <form id="form-contato" action="" class="col s12" onsubmit="salvaReclamacao()">
                     <div class="row">
-                        <div class="input-field col s12">
+                        <div class="input-field col s6">
                             <i class="material-icons prefix">account_circle</i>
                             <input id="input-name" type="text" class="validate" maxlength="60" autofocus
                                 pattern="^(?![ ])(?!.*[ ]{2})((?:e|da|do|das|dos|de|d'|D'|la|las|el|los)\s*?|(?:[A-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð'][^\s]*\s*?)(?!.*[ ]$))+$"
                                 required>
-                            <label for="input-name">Nome Sobenome</label>
+                            <label for="input-name">Nome Completo</label>
                         </div>
-
-                        <div class="row">
-                            <div class="input-field col s12">
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">store</i>
+                            <input id="input-empresa" type="text" class="validate" maxlength="60" autofocus pattern="^(?![ ])(?!.*[ ]{2})((?:e|da|do|das|dos|de|d'|D'|la|las|el|los)\s*?|(?:[A-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð'][^\s]*\s*?)(?!.*[ ]$))+$"
+                                required>
+                            <label for="input-empresa">Empresa</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
                                 <i class="material-icons prefix">store</i>
-                                <input id="input-name" type="text" class="validate" maxlength="60" autofocus
-                                    pattern="^(?![ ])(?!.*[ ]{2})((?:e|da|do|das|dos|de|d'|D'|la|las|el|los)\s*?|(?:[A-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð'][^\s]*\s*?)(?!.*[ ]$))+$"
-                                    required>
-                                <label for="input-name">Empresa</label>
-                            </div>
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">phone</i>
-                                <input id="input-telefone" type="tel" class="validate" maxlength="15"
-                                    placeholder="Ex.: (00) 00000-0000" required>
-                                <label for="input-telefone">Telefone</label>
-                            </div>
-                        </div>
+                            <select id="select-company">
+                                <option disabled selected>Escolha uma opção</option>
 
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">mail_outline</i>
-                                <input id="input-email" type="email" class="validate" maxlength="40"
-                                    pattern="^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$"
-                                    placeholder="seu@email.com" onfocus="ganhaFocus('input-email')"
-                                    onblur="perdeFocus('input-email')" required>
-                                <label for="input-email">Email</label>
-                                <span class="helper-text" data-error="Favor digitar e-mail valido"
-                                    data-success="Correto">ajuda</span>
-                            </div>
+                                <option value="formaturas-eventos">Formaturas e Eventos</option>
+                                <option value="clinica-veterinaria">Clínica Veterinária</option>
+                                <option value="bar-restaurante">Bar e Restaurante</option>
+                                <option value="loja-confeccoes">Loja de Confecções</option>
+                                <option value="produtos-odontologicos">Produtos Odontológicos</option>
+                                <option value="grafica">Gráfica e Laboratório de impressão</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                            <label id="select-company">Ramo da Atividade</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s6">
-                                <i class="material-icons prefix">mode_edit</i>
-                                <textarea maxlength="3000" id="input-textarea" class="materialize-textarea"
-                                    onfocus="removerClasse()" required></textarea>
-                                <label for="input-textarea">Sua mensagem</label>
-                            </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="input-telefone" type="tel" class="validate" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
+                            placeholder="(42) 99999-9999" required>
+                            <label for="input-telefone">Telefone</label>
                         </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <button id="btn-submit" class="btn waves-effect blue darken-4 white-text" type="submit"
-                                    name="action" name="action">Enviar<i class="material-icons right">send</i></button>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">mail_outline</i>
+                            <input id="input-email" type="email" class="validate" maxlength="40"
+                                pattern="^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$" placeholder="seu@email.com"
+                                onfocus="ganhaFocus('input-email')" onblur="perdeFocus('input-email')" required>
+                            <label for="input-email">Email</label>
+                            <span class="helper-text" data-error="Favor digitar e-mail valido"
+                                data-success="Correto">ajuda</span>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">mode_edit</i>
+                            <textarea maxlength="3000" id="input-textarea" class="materialize-textarea"
+                                onfocus="removerClasse()" required></textarea>
+                            <label for="input-textarea">Mensagem</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <button id="btn-submit" class="btn waves-effect blue darken-4 white-text" type="submit"
+                                name="action" name="action">Enviar<i class="material-icons right">send</i></button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
         <!--fim pagina main-->
     </div>
-
     <!-- inicio footer-->
     <div id="footer"></div>
     <!-- fim footer-->

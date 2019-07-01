@@ -1,4 +1,4 @@
-(function ($) {
+﻿(function ($) {
     $(function () {
         $("#menu").load("menu.html");
         $("#footer").load("footer.html");
@@ -39,3 +39,4 @@ function mudaCorIconOut(id) {
     $("#" + id).removeClass("light-green-text darken-1");
     $("#" + id).addClass("grey-text");
 }
+
