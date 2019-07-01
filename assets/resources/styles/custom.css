@@ -22,6 +22,11 @@ main {
     flex: 1 0 auto;
 }
 
+.centraliza-nav{
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
 .tam-font-edit {
     font-size: 2em;
 }
