@@ -59,15 +59,23 @@
 
     //metodos
     function removerClasseSubmit() {
-        $("#btn-submit").removeClass("disabled");
+        $('#btn-submit').removeClass("disabled");
     }
 
     function cadastra() {
 
-        getCheckboxArray();
-        arrayRelatorio.push($id('input-name').value, $id('input-email').value, $id('input-name').telefone, $id('input-name').cidade, arrayChecked, $id('input-mensagem').value);
+        let nome = $id('input-name').value;
+        let genero = $id('gender-group').value;
+        let cidade = $id('input-city').value;
+        let email = $id('input-email').value;
+        getCheckboxArray();//array areas
+        let mensagem = $id('input-mensagem').value;
+    
+        arrayRelatorio.push(nome, genero, cidade, email, arrayChecked, mensagem);
+        //arrayRelatorio.push($id('input-name').value, $id('input-email').value, $id('input-telefone').value, $id('input-city').value, arrayChecked, $id('input-mensagem').value);
         clear();
-        atualizaValores();
+        
+        console.log(arrayRelatorio);
     };
 
     function getCheckboxArray() {
@@ -104,18 +112,21 @@
 
     //VERIFICAR
     function clear() {
-        $id('input-name').value = "";
-        document.getElementsByName('gender-group').value = "";
-        /*$id('input-input-gender-masculine').value = "";
-        $id('input-gender-feminine').value = "";*/
-        document.querySelectorAll('symptom-group').value = "";
+        let nome = $id('input-name').value = "";
+        let genero = $id('gender-group').value = "";
+        let cidade = $id('input-city').value = "";
+        let email = $id('input-email').value = "";
+        document.querySelectorAll('checkox-areas').values = ""; //areas
+        let mensagem = $id('input-mensagem').value = "";
+
         $('#input-name').focus();
     };
 
     // calsse objetos
     class Pessoa {
-        constructor(nome, email, telefone, cidade, areas, mensagem) {
+        constructor(nome, genero, cidade, email, areas, mensagem) {
             this.nome = nome;
+            this.genero = genero;
             this.email = email;
             this.telefone = telefone;
             this.cidade = cidade;
