@@ -48,7 +48,7 @@
 
         $id('form-curriculo').addEventListener("submit", function (event) {
             cadastra();
-            console.log("FOIII, tam array: " + arrayRelatorio.length);
+            //console.log("FOIII, tam array: " + arrayRelatorio.length);
             /*if (validaCamposNulos() == false) {
                 window.alert("Preencha os Campos");
             } else {
@@ -73,7 +73,7 @@
 
     function restauraArrayObjetos(){
         console.log("restaurando");
-        let arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
+        arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
         /*if(arrayRelatorio.length > 0){
             console.log("dados encontrados");
         }else{
@@ -92,7 +92,7 @@
         arrayRelatorio.push(criaObjeto());
         armazenaArrayObjetos(arrayRelatorio);
 
-        clear();
+        //clear();
         console.log(arrayRelatorio);
     };
 
