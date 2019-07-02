@@ -42,50 +42,94 @@
 
         $id('input-textarea').addEventListener("focus", () => {
             window.setTimeout(() => {
-                $("#btn-submit").removeClass("disabled");
-            }, 1000);
+                if (validaCamposAll()) {
+                    $("#btn-submit").removeClass("disabled");
+                }
+            }, 2000);
         });
 
         $id('form-curriculo').addEventListener("submit", function (event) {
-            cadastra();
-            //console.log("FOIII, tam array: " + arrayRelatorio.length);
-            /*if (validaCamposNulos() == false) {
-                window.alert("Preencha os Campos");
-            } else {
+            if (validaCamposAll()) {
                 cadastra();
-            }*/
+                console.log("validação dos campos: " + validaCamposAll());
+            } else {
+                window.alert("Preencha os Campos");
+                console.log("validação dos campos: " + validaCamposAll());
+            }
         });
-
-        //checkbox
-        // mesagem
-        //radiobutton
-
     };
 
-    //var global
+
+    //VAR GLOBAL
     let arrayRelatorio = [];
-    //let arrayChecked = [];
-    //let pessoaObj;
 
+    //VALIDAÇÃO
+    function validaGenero() {
+        let elems = document.getElementsByName('gender-group');
+        for (i in elems) {
+            if (elems[i].checked) {
+                return true;
+            }
+        }
+        //alert('O genero não foi selecionado, favor selecione um!');
+        return false;
+    };
 
+    function validaAreas() {
+        let elems = document.getElementsByName('interest-group');
+        for (i in elems) {
+            if (elems[i].checked) {
+                return true;
+            }
+        }
+        // alert('Nenhuma area foi selecionada, favor selecione uma!');
+        return false;
+    };
 
-    //metodos
+    function validaCamposAll() {
+        let aux = null;
 
-    function restauraArrayObjetos(){
+        aux = validaAreas();
+        aux = validaGenero();
+
+        if ($id('input-name').value == "") {
+            aux = false;
+        }
+        if ($id('input-telefone').value == "") {
+            aux = false;
+        }
+        if ($id('input-city').value == "") {
+            aux = false;
+        }
+        if ($id('input-email').value == "") {
+            aux = false;
+        }
+        if ($id('input-textarea').value == "") {
+            aux = false;
+        }
+
+        return aux;
+    };
+
+    //METODOS
+    function restauraArrayObjetos() {
         console.log("restaurando");
         arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
-        /*if(arrayRelatorio.length > 0){
+        if (arrayRelatorio.length !== null) {
             console.log("dados encontrados");
-        }else{
-            console.log("array vazia ou não encontrada");
-        }*/
-    }
+        } else {
+            if (arrayRelatorio.length == null) {
+                console.log("array vazia ou não encontrada");
+                arrayRelatorio = [];
+            }
+        }
+    };
 
-    function armazenaArrayObjetos(array){
+    function armazenaArrayObjetos(array) {
         console.log("armazenando");
         localStorage.setItem("pessoas", JSON.stringify(array));
         console.log("armazenado sucess");
-    }
+    };
 
     function cadastra() {
         restauraArrayObjetos();
@@ -96,83 +140,52 @@
         console.log(arrayRelatorio);
     };
 
+    function getAreas() {
+        let areas = [];
+        let elems = document.getElementsByName('interest-group');
+        let cont = 0;
 
-
-    //VERIFICAR
-    function getCheckboxArray() {
-        let arrayChecked = [];
-        let arrayAll = document.querySelectorAll('interest-group');
-        console.log(arrayAll + "tam: " + arrayAll.length);
-        for(let i = 0; i < arrayAll.length; i++){
-            console.log("for checkbox");
-            if(arrayAll[i].checked){
-                arrayChecked.push(element);
-                console.log("passando for eementos checkbox");
+        for (i in elems) {
+            if (elems[i].checked) {
+                if (cont > 0)
+                    areas[cont] = " " + elems[i].value;
+                else
+                    areas[cont] = elems[i].value;
+                cont++;
             }
         }
-        /*
-        arrayAll.forEach(element => {
-            if (element.checked) {
-                arrayChecked.push(element);
-            }
-            console.log("passando for eementos checkbox");
-        });
-        */
-        console.log("array dos checked" + arrayChecked); //apagar
-        return arrayChecked;
-        /*//verificação se esta prenchido
-        if (arrayChecked > 0) {
-            return true;
-        }*/
+
+        return areas;
     };
 
-    //VERIFICAR     METODO PARA GENDER 
-    function getRadioValor() {
-        var generosAll = document.getElementsByName('gender-group');
-        generosAll.forEach(e => {
-            if (e.checked) {
-                return e.value;
-            }
-        });
+    function getGenero() {
+        if ($('input-gender-masculine').checked) {
+            return "Masculino";
+        }
+        if ($('input-gender-feminine').checked) {
+            return "Feminino";
+        }
     };
 
     //VERIFICAR
-    //genero e areas
     function criaObjeto() {
         let nome = $id('input-name').value;
-        let genero = document.getElementsByName('gender-group').value;
+        let genero = getGenero();
         let telefone = $id('input-telefone').value;
         let cidade = $id('input-city').value;
         let email = $id('input-email').value;
-        let areas = getCheckboxArray(); //array areas
+        let areas = getAreas();
         let mensagem = $id('input-textarea').value;
 
         let pessoaObj = new Pessoa(nome, genero, telefone, cidade, email, areas, mensagem);
 
-        return pessoaObj;
-    }
+        console.log(pessoaObj);
 
-    //VERIFICAR
-    function validaCamposNulos() {
-        let aux = null;
-        if ($id('input-name').value == "") {
-            aux = false;
-        }
-        /*
-                if (getCheckboxArray() != true) {
-                    aux = false;
-                }*/
-        if (aux == false) {
-            return false;
-        } else {
-            if (aux == null) {
-                return true;
-            }
-        }
+        return pessoaObj;
     };
 
     //VERIFICAR
-    function clear() {
+    /*function clear() {
         let nome = $id('input-name').value = "";
         let genero = document.getElementsByName('gender-group').value = "";
         let telefone = $id('input-telefone').value = "";
@@ -182,9 +195,9 @@
         let mensagem = $id('input-textarea').value = "";
 
         $('#input-name').focus();
-    };
+    };*/
 
-    // calsse objetos
+    //CLASSES OBJETOS
     class Pessoa {
         constructor(nome, genero, telefone, cidade, email, areas, mensagem) {
             this.nome = nome;
@@ -202,10 +215,10 @@
 /*
 A FAZER
 
-*genero e areas não esta recebendo dados
+*genero e areas não esta recebendo dados  ok
 *VALIDAÇÃO DOS CAMPOS COM REGEX E INVALID E TEXTO
-*ARRAY DE OBJETO ESTA SAINDO VAZIA 
+*ARRAY DE OBJETO ESTA SAINDO VAZIA  ok
 *verificar o envio, objeto, etc      /ok
-*fzer pagina de relatorio       
-*fazer consulta dos objetos salvo
+*fzer pagina de relatorio       ok
+*fazer consulta dos objetos salvo ok
 */
