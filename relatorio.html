@@ -30,9 +30,11 @@
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="assets/libraries/materialize/js/materialize.min.js"></script>
+    <!--Jquery plugin mask-->
+    <script type="text/javascript" src="assets/libraries/jquery/jquery.mask.min.js"></script>
+
     <!-- meu script -->
     <script type="text/javascript" src="assets/resources/scripts/init.js"></script>
-    <script type="text/javascript" src="assets/resources/scripts/relatorio.js"></script>
 
 
 </head>
@@ -42,31 +44,14 @@
     <div id="menu"></div>
     <!-- fim nav-->
 
-    <!--Relatorio inicio-->
 
-    <div id="relatorios-curriculo" class="row section blue darken-2">
+    <div id="menu"></div>
 
-        <!--cria para cada um essa div-->
-        <div class="container about">
-            <div class="col s12 flow-text">
-                <p>
-                    Nome: <span id="span-name">NOME</span> <span id="span-genre">ELE|ELA</span>
-                    Telefone: <span id="span-numero">N</span> Cidade: <span id="span-city">cidad</span>
-                    E-mail: <span id="span-email">email</span>
-                </p>
-                <p>
-                    Área de interesse: <span id="span-areas">areas</span>
-                </p>
-                <p>
-                    Mensagem: <span id="span-msg">msg</span>
-                </p>
-            </div>
-        </div>
-        <!--cria para cada um essa div-->
-    </div>
+    <!--Aqui insere lista-->
+    <div id="todos-relatorios"></div>
+    <!--Aqui insere lista-->
 
 
-    <!--Relatorio fim-->
 
     <!-- inicio footer-->
     <div id="footer"></div>
@@ -75,27 +60,3 @@
 </body>
 
 </html>
-
-<!--
-    para cada elemento da array criar uma nova div com os campos abaixo, sendo ""areas"" uma array de sring (tem que tratar as strings)
-
-    campos:      nome, genero, telefone, cidade, email, areas, mensagem
-4
-
-
-
-
-
-<div class="row section red lighten-4">
-            <div class="container about">
-                <div class="col s12 flow-text">
-                    <h5>Curriculo de <span id="span-name">NOME</span></h5>
-                    <p><span id="span-genre">ELE|ELA</span> que tem o Telefone <span id="span-phone">(XX)XXXXX-XXXX,</span> 
-                        reside na cidade de <span id="span-city">CIDADE</span> seu e-mail <span id="span-email"></span> Tem interrese
-                        nas Areas <span id="span-areas">Area1, Area2</span>.</p>
-                    <p>Deixa a seguinte Mensagem <span id="span-msg">MENSAGEM</span>.</p>
-                    <p>Curriculo preenhido em <span id="span-now-date">DD/MM/YYYY</span> às <span id="span-now-hour">mm:ss</span>.</p>
-                </div>
-            </div>
-        </div>
--->

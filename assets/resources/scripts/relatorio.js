@@ -2,41 +2,51 @@
     let $id = function (id) {
         return document.getElementById(id);
     };
-    let relatorioLista = [];
 
-    window.onload = function () {
-        console.log("restaurando");
-        relatorioLista = JSON.parse(localStorage.getItem("pessoas"));
 
-    };
+    console.log("restaurando");
 
-    let flecha = () => {
-        for (let i = 0; i < relatorioLista.length; i++) {
-            let pessoas = relatorioLista[i];
-            $id('relatorios-curriculo').innerHTML = `
-    <div class="container about">
-    <div class="col s12 flow-text">
-        <p>
-            Nome: <span id="span-name">${pessoas.nome}</span> <span id="span-genre">${pessoas.genero}</span>
-            Telefone: <span id="span-numero">${pessoas.telefone}</span> Cidade: <span id="span-city">${pessoas.cidade}</span>
-            E-mail: <span id="span-email">${pessoas.email}</span>
-        </p>
-        <p>
-            Área de interesse: <span id="span-areas">${pessoas.areas}</span>
-        </p>
-        <p>
-            Mensagem: <span id="span-msg">${pessoas.mensagem}</span>
-        </p>
-    </div>
-</div>
-    `;
+    let relaPessoas = JSON.parse(localStorage.getItem("pessoas"));
+    if (relaPessoas == null) {
+        relaPessoas = [];
+    }
+
+    console.log(relaPessoas);
+
+    listaCurriculos();
+
+    function listaCurriculos() {
+        let retorno = "";
+
+        if (relaPessoas.length > 0) {
+            for (let i = 0; i < relaPessoas.length; i++) {
+                let auxArrea = "";
+
+                for (let j = 0; j < relaPessoas[i].areas.length; j++) {
+                    auxArrea += relaPessoas[i].areas[j] + "; ";
+                }
+
+                retorno += `<div class="row section blue">
+                <div id="relatorios-curriculo" class="container about"><div class="col s12 flow-text">
+                <p>
+                    Nome: <span id="span-name">${relaPessoas[i].nome}</span> Genero: <span id="span-genre">${relaPessoas[i].genero}</span>
+                    Telefone: <span id="span-numero">${relaPessoas[i].telefone}</span> Cidade: <span id="span-city">${relaPessoas[i].cidade}</span>
+                    E-mail: <span id="span-email">${relaPessoas[i].email}</span>
+                </p>
+                <p>
+                    Área de interesse: <span id="span-areas">${auxArrea}</span>
+                </p>
+                <p>
+                    Mensagem: <span id="span-msg">${relaPessoas[i].mensagem}</span>
+                </p>
+                </div></div></div>`;
+            }
+        } else {
+            retorno = "<p>Não objetos cadastrados</p>";
         }
+        console.log(retorno);
+        console.log(typeof retorno);
+
+        $id('meio-relatorio').innerHTML = retorno;
     };
-    flecha();
-
 })();
-/*
-terminar relatorio
-fazer metodo da array list de areas
-
-*/

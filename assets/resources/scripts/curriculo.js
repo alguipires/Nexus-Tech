@@ -114,28 +114,24 @@
     //METODOS
     function restauraArrayObjetos() {
         console.log("restaurando");
+        arrayRelatorio = new Array ();
         arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
-        if (arrayRelatorio.length !== null) {
-            console.log("dados encontrados");
-        } else {
-            if (arrayRelatorio.length == null) {
-                console.log("array vazia ou não encontrada");
-                arrayRelatorio = [];
-            }
+        console.log(typeof arrayRelatorio);
+        if (arrayRelatorio == null) { // Caso não haja conteúdo, iniciamos um vetor vazio
+            arrayRelatorio = [];
         }
     };
 
     function armazenaArrayObjetos(array) {
         console.log("armazenando");
         localStorage.setItem("pessoas", JSON.stringify(array));
-        console.log("armazenado sucess");
+        console.log("armazenado com sucesso");
     };
 
     function cadastra() {
         restauraArrayObjetos();
         arrayRelatorio.push(criaObjeto());
         armazenaArrayObjetos(arrayRelatorio);
-
         //clear();
         console.log(arrayRelatorio);
     };
@@ -147,9 +143,9 @@
 
         for (i in elems) {
             if (elems[i].checked) {
-                if (cont > 0)
+                /*if (cont > 0)
                     areas[cont] = " " + elems[i].value;
-                else
+                else*/
                     areas[cont] = elems[i].value;
                 cont++;
             }
