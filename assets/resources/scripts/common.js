@@ -1,5 +1,5 @@
 
-//Inicialização select
+//Inicializacao select
 
 $(document).ready(function () {
    
