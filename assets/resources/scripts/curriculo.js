@@ -45,7 +45,7 @@
                 if (validaCamposAll()) {
                     $("#btn-submit").removeClass("disabled");
                 }
-            }, 2000);
+            }, 5000);
         });
 
         $id('form-curriculo').addEventListener("submit", function (event) {
@@ -71,7 +71,7 @@
                 return true;
             }
         }
-        //alert('O genero não foi selecionado, favor selecione um!');
+        alert('O genero não foi selecionado, favor selecione um!');
         return false;
     };
 
@@ -82,7 +82,7 @@
                 return true;
             }
         }
-        // alert('Nenhuma area foi selecionada, favor selecione uma!');
+        alert('Nenhuma area foi selecionada, favor selecione uma!');
         return false;
     };
 
@@ -114,7 +114,7 @@
     //METODOS
     function restauraArrayObjetos() {
         console.log("restaurando");
-        arrayRelatorio = new Array ();
+        arrayRelatorio = new Array();
         arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
         console.log(typeof arrayRelatorio);
         if (arrayRelatorio == null) { // Caso não haja conteúdo, iniciamos um vetor vazio
@@ -132,8 +132,13 @@
         restauraArrayObjetos();
         arrayRelatorio.push(criaObjeto());
         armazenaArrayObjetos(arrayRelatorio);
-        //clear();
         console.log(arrayRelatorio);
+        fimCadastro();
+    };
+
+    function fimCadastro() {
+        window.alert("Cadastro realizado com sucesso!");
+        window.location.href = "index.html";
     };
 
     function getAreas() {
@@ -143,22 +148,18 @@
 
         for (i in elems) {
             if (elems[i].checked) {
-                /*if (cont > 0)
-                    areas[cont] = " " + elems[i].value;
-                else*/
-                    areas[cont] = elems[i].value;
+                areas[cont] = elems[i].value;
                 cont++;
             }
         }
-
         return areas;
     };
 
     function getGenero() {
-        if ($('input-gender-masculine').checked) {
+        if ($id('input-gender-masculine').checked) {
             return "Masculino";
         }
-        if ($('input-gender-feminine').checked) {
+        if ($id('input-gender-feminine').checked) {
             return "Feminino";
         }
     };
@@ -172,26 +173,10 @@
         let email = $id('input-email').value;
         let areas = getAreas();
         let mensagem = $id('input-textarea').value;
-
         let pessoaObj = new Pessoa(nome, genero, telefone, cidade, email, areas, mensagem);
-
-        console.log(pessoaObj);
 
         return pessoaObj;
     };
-
-    //VERIFICAR
-    /*function clear() {
-        let nome = $id('input-name').value = "";
-        let genero = document.getElementsByName('gender-group').value = "";
-        let telefone = $id('input-telefone').value = "";
-        let cidade = $id('input-city').value = "";
-        let email = $id('input-email').value = "";
-        document.querySelectorAll('checkox-areas').values = ""; //areas
-        let mensagem = $id('input-textarea').value = "";
-
-        $('#input-name').focus();
-    };*/
 
     //CLASSES OBJETOS
     class Pessoa {
@@ -207,14 +192,3 @@
     }
 
 })();
-
-/*
-A FAZER
-
-*genero e areas não esta recebendo dados  ok
-*VALIDAÇÃO DOS CAMPOS COM REGEX E INVALID E TEXTO
-*ARRAY DE OBJETO ESTA SAINDO VAZIA  ok
-*verificar o envio, objeto, etc      /ok
-*fzer pagina de relatorio       ok
-*fazer consulta dos objetos salvo ok
-*/

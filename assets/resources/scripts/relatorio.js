@@ -47,6 +47,6 @@
         console.log(retorno);
         console.log(typeof retorno);
 
-        $id('meio-relatorio').innerHTML = retorno;
+        $id('tudo').innerHTML = retorno;
     };
 })();
