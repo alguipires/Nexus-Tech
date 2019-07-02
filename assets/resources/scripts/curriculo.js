@@ -43,12 +43,12 @@
         $id('input-textarea').addEventListener("focus", () => {
             window.setTimeout(() => {
                 $("#btn-submit").removeClass("disabled");
-            }, 2000);
+            }, 1000);
         });
 
         $id('form-curriculo').addEventListener("submit", function (event) {
             cadastra();
-            console.log("FOIII, tam array: " + arrayRelatorio.length);
+            //console.log("FOIII, tam array: " + arrayRelatorio.length);
             /*if (validaCamposNulos() == false) {
                 window.alert("Preencha os Campos");
             } else {
@@ -71,12 +71,32 @@
 
     //metodos
 
-    function cadastra() {
-        arrayRelatorio.push(criaObjeto());
-        clear();
+    function restauraArrayObjetos(){
+        console.log("restaurando");
+        arrayRelatorio = JSON.parse(localStorage.getItem("pessoas"));
+        /*if(arrayRelatorio.length > 0){
+            console.log("dados encontrados");
+        }else{
+            console.log("array vazia ou não encontrada");
+        }*/
+    }
 
+    function armazenaArrayObjetos(array){
+        console.log("armazenando");
+        localStorage.setItem("pessoas", JSON.stringify(array));
+        console.log("armazenado sucess");
+    }
+
+    function cadastra() {
+        restauraArrayObjetos();
+        arrayRelatorio.push(criaObjeto());
+        armazenaArrayObjetos(arrayRelatorio);
+
+        //clear();
         console.log(arrayRelatorio);
     };
+
+
 
     //VERIFICAR
     function getCheckboxArray() {
@@ -185,7 +205,7 @@ A FAZER
 *genero e areas não esta recebendo dados
 *VALIDAÇÃO DOS CAMPOS COM REGEX E INVALID E TEXTO
 *ARRAY DE OBJETO ESTA SAINDO VAZIA 
-*verificar o envio, objeto, etc
-*fzer pagina de relatorio
+*verificar o envio, objeto, etc      /ok
+*fzer pagina de relatorio       
 *fazer consulta dos objetos salvo
 */
