@@ -36,10 +36,6 @@
 
     <!-- meu script -->
     <script type="text/javascript" src="assets/resources/scripts/init.js"></script>
-    <script type="text/javascript" src="assets/resources/scripts/curriculo.js"></script>
-
-
-    </body>
 
 </head>
 
@@ -66,7 +62,7 @@
 
     <div class="container">
         <div class="row">
-            <form id="form-curriculo" action="" class="col s12">
+            <form id="form-curriculo" class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">account_circle</i>
@@ -96,8 +92,8 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">phone</i>
-                        <input id="input-telefone" type="tel" class="validate" maxlength="15" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"
-                            placeholder="Ex.: (00) 00000-0000" >
+                        <input id="input-telefone" type="tel" class="validate" maxlength="15"
+                            pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" placeholder="Ex.: (00) 00000-0000" >
                         <label for="input-telefone">Telefone</label>
                     </div>
                 </div>
@@ -105,7 +101,7 @@
                     <div class="input-field col s6">
                         <i class="material-icons prefix">location_city</i>
                         <input id="input-city" type="tel" class="validate" maxlength="50" placeholder="Ex.: Guarapuava"
-                            >
+                            required>
                         <label for="input-city">Cidade</label>
                     </div>
                 </div>
@@ -115,7 +111,7 @@
                     <div class="input-field col s12">
                         <input id="input-email" type="email" class="validate" maxlength="40"
                             pattern="^([\w\-]+\.)*[\w\- ]+@([\w\- ]+\.)+([\w\-]{2,3})$" placeholder="seu@email.com"
-                            >
+                            required>
                         <label for="input-email">Email</label>
                         <span class="helper-text" data-error="Favor digitar e-mail valido"
                             data-success="Correto">ajuda</span>
@@ -160,14 +156,14 @@
                 <div class="row">
                     <div class="input-field col s6">
                         <i class="material-icons prefix">mode_edit</i>
-                        <textarea maxlength="3000" id="input-textarea" class="materialize-textarea"></textarea>
+                        <textarea maxlength="3000" id="input-textarea" class="materialize-textarea" required></textarea>
                         <label for="input-textarea">Sua mensagem</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <button id="btn-submit" class="btn waves-effect blue darken-4 white-text" type="submit"
-                            name="action" name="action">Enviar<i class="material-icons right">send</i></button>
+                        <button type="submit" id="btn-submit" class="btn waves-effect blue darken-4 white-text">Enviar<i
+                                class="material-icons right">send</i></button>
                     </div>
                 </div>
             </form>
@@ -179,4 +175,7 @@
     <div id="footer"></div>
     <!-- fim footer-->
 
+    <!-- meu script -->
+    <script type="text/javascript" src="assets/resources/scripts/curriculo.js"></script>
+</body>
 </html>

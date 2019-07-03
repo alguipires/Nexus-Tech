@@ -2,11 +2,13 @@
     $(function () {
         $("#menu").load("menu.html");
         $("#footer").load("footer.html");
+        $("#todos-relatorios").load("relatorio-center.html");
         //$('.sidenav').sidenav();  // ja esta sendo carregado no menu.html com uma tag <script>
         $('.parallax').parallax();
 
         $('select').formSelect();
 
+       
         //inicialização carousel secundario logos
         $('.carousel').carousel();
 
