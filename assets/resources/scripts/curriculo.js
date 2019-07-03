@@ -16,47 +16,49 @@
         $id('form-curriculo').addEventListener("submit", function (e) {
             e.preventDefault();
         });
-        
+
     };
 
     //validação
-    $id('input-name').addEventListener("blur", function (event) {
+    $id('input-name').addEventListener("invalid", function (event) {
         if ($id('input-name').validity.patternMismatch) {
             $id('input-name').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
-        }else{
+        } else {
             $id('input-name').setCustomValidity("");
         }
     });
-    
-    $id('input-city').addEventListener("blur", function () {
+
+    $id('input-city').addEventListener("invalid", function (event) {
         if ($id('input-city').validity.patternMismatch) {
-            $id('input-city').addEventListener("invalid");
             $id('input-city').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
+        } else {
+            $id('input-city').setCustomValidity("");
         }
     });
 
-    $id('input-telefone').addEventListener("blur", function () {
+    $id('input-telefone').addEventListener("invalid", function (event) {
         if ($id('input-telefone').validity.patternMismatch) {
-            $id('input-telefone').addEventListener("invalid");
             $id('input-telefone').setCustomValidity("Por favor, insira um numero com 9 digitos apos o DDD");
+        } else {
+            $id('input-telefone').setCustomValidity("");
         }
     });
 
-    $id('input-textarea').addEventListener("focus", () => {
-        window.setTimeout(() => {
-            if (validaCamposAll()) {
-                $("#btn-submit").removeClass("disabled");
+    $id('input-textarea').addEventListener("blur", () => {
+        if (validaCamposAll()) {
+            $("#btn-submit").removeClass("disabled");
+        } else {
+            if (!validaCamposAll()) {
+                window.setTimeout(() => {
+                    window.alert("Verefique o formulario novamente pois a campos invalidos!");
+                }, 1200);
             }
-        }, 5000);
+        }
     });
 
     $id('form-curriculo').addEventListener("submit", function (event) {
         if (validaCamposAll()) {
             cadastra();
-            console.log("validação dos campos: " + validaCamposAll());
-        } else {
-            window.alert("Preencha os Campos");
-            console.log("validação dos campos: " + validaCamposAll());
         }
     });
 
@@ -71,7 +73,7 @@
                 return true;
             }
         }
-        alert('O genero não foi selecionado, favor selecione um!');
+        //alert('O genero não foi selecionado, favor selecione um!');
         return false;
     };
 
@@ -82,7 +84,7 @@
                 return true;
             }
         }
-        alert('Nenhuma area foi selecionada, favor selecione uma!');
+        //alert('Nenhuma area foi selecionada, favor selecione uma!');
         return false;
     };
 
