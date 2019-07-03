@@ -16,49 +16,49 @@
         $id('form-curriculo').addEventListener("submit", function (e) {
             e.preventDefault();
         });
-
-        //validação
-        $id('input-name').addEventListener("blur", function (event) {
-            if ($id('input-name').validity.patternMismatch) {
-                $id('input-name').addEventListener("invalid", function (event) {
-                    $id('input-name').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
-                });
-            }
-        });
-
-        $id('input-city').addEventListener("blur", function () {
-            if ($id('input-city').validity.patternMismatch) {
-                $id('input-city').addEventListener("invalid");
-                $id('input-city').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
-            }
-        });
-
-        $id('input-telefone').addEventListener("blur", function () {
-            if ($id('input-telefone').validity.patternMismatch) {
-                $id('input-telefone').addEventListener("invalid");
-                $id('input-telefone').setCustomValidity("Por favor, insira um numero com 9 digitos apos o DDD");
-            }
-        });
-
-        $id('input-textarea').addEventListener("focus", () => {
-            window.setTimeout(() => {
-                if (validaCamposAll()) {
-                    $("#btn-submit").removeClass("disabled");
-                }
-            }, 5000);
-        });
-
-        $id('form-curriculo').addEventListener("submit", function (event) {
-            if (validaCamposAll()) {
-                cadastra();
-                console.log("validação dos campos: " + validaCamposAll());
-            } else {
-                window.alert("Preencha os Campos");
-                console.log("validação dos campos: " + validaCamposAll());
-            }
-        });
+        
     };
 
+    //validação
+    $id('input-name').addEventListener("blur", function (event) {
+        if ($id('input-name').validity.patternMismatch) {
+            $id('input-name').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
+        }else{
+            $id('input-name').setCustomValidity("");
+        }
+    });
+    
+    $id('input-city').addEventListener("blur", function () {
+        if ($id('input-city').validity.patternMismatch) {
+            $id('input-city').addEventListener("invalid");
+            $id('input-city').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
+        }
+    });
+
+    $id('input-telefone').addEventListener("blur", function () {
+        if ($id('input-telefone').validity.patternMismatch) {
+            $id('input-telefone').addEventListener("invalid");
+            $id('input-telefone').setCustomValidity("Por favor, insira um numero com 9 digitos apos o DDD");
+        }
+    });
+
+    $id('input-textarea').addEventListener("focus", () => {
+        window.setTimeout(() => {
+            if (validaCamposAll()) {
+                $("#btn-submit").removeClass("disabled");
+            }
+        }, 5000);
+    });
+
+    $id('form-curriculo').addEventListener("submit", function (event) {
+        if (validaCamposAll()) {
+            cadastra();
+            console.log("validação dos campos: " + validaCamposAll());
+        } else {
+            window.alert("Preencha os Campos");
+            console.log("validação dos campos: " + validaCamposAll());
+        }
+    });
 
     //VAR GLOBAL
     let arrayRelatorio = [];
