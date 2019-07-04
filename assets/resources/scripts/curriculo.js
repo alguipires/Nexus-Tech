@@ -14,6 +14,7 @@
         })();
 
         $id('form-curriculo').addEventListener("submit", function (e) {
+            console.log(e);
             e.preventDefault();
         });
 
@@ -28,7 +29,7 @@
         }
     });
 
-    $id('input-city').addEventListener("invalid", function (event) {
+    $id('input-city').addEventListener("blur", function (event) {
         if ($id('input-city').validity.patternMismatch) {
             $id('input-city').setCustomValidity("Por favor, insira um nome com inicial maiúscula e sem a inclusão de números.");
         } else {
@@ -66,7 +67,7 @@
     let arrayRelatorio = [];
 
     //VALIDAÇÃO
-    function validaGenero() {
+    let validaGenero = function () {
         let elems = document.getElementsByName('gender-group');
         for (i in elems) {
             if (elems[i].checked) {

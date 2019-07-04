@@ -11,11 +11,9 @@
         relaPessoas = [];
     }
 
-    console.log(relaPessoas);
+    //listaCurriculos();
 
-    listaCurriculos();
-
-    function listaCurriculos() {
+    (function listaCurriculos() {
         let retorno = "";
 
         if (relaPessoas.length > 0) {
@@ -49,6 +47,6 @@
         console.log(retorno);
         console.log(typeof retorno);
 
-        $id('tudo').innerHTML = retorno;
-    };
+        $('#tudo').append(retorno);
+    })();
 })();
