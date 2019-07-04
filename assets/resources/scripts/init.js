@@ -23,6 +23,10 @@
             $('.carousel').carousel('next', 1);
         }, 4000);
 
+        //modal opcional
+        $('#modal1').modal();
+        $('#modal1').modal('open');
+
         $("#input-telefone").mask('(00) 00000-0000', {
             reverse: false
         });
