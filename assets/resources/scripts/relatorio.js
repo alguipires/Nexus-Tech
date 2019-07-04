@@ -42,7 +42,9 @@
                 </div></div></div>`;
             }
         } else {
-            retorno = "<p>Não objetos cadastrados</p>";
+            retorno = `<div class="row section blue">
+            <div id="relatorios-curriculo" class="container about"><div class="col s12 flow-text">
+            <p>Não há curriculos cadastrados</p></div></div></div>`;
         }
         console.log(retorno);
         console.log(typeof retorno);
