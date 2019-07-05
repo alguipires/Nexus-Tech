@@ -2,7 +2,7 @@
 # Projeto da disciplina WEB II UTFPR - Guarapuava
 
 
-GitHub Pages: https://utfpr-gp.github.io/vixe-quebrou-js/.
+GitHub Pages: https://alguipires.github.io/nexus-tech/
 
 Qualidade do código
 
